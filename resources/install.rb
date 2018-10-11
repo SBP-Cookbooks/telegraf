@@ -90,11 +90,19 @@ action :create do
     end
 
     if platform_family? 'windows'
+      if telegraf_install?
+        service "telegraf_#{new_resource.name}" do
+          service_name 'telegraf'
+          action [:stop]
+          only_if { ::Win32::Service.exists?('telegraf') }
+        end
+      end
+
       chocolatey_package 'telegraf' do
         version new_resource.install_version
         source node['telegraf']['chocolatey_source']
         options node['telegraf']['chocolatey_options'] unless node['telegraf']['chocolatey_options'] == ''
-        action :install
+        action :upgrade
       end
     else
       package 'telegraf' do

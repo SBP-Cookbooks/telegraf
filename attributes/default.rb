@@ -65,7 +65,7 @@ default['telegraf']['inputs'] = {
     'drop' => ['cpu_time'],
   },
   'disk' => {},
-  'io' => {},
+  'diskio' => {},
   'mem' => {},
   'net' => {},
   'swap' => {},

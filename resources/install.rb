@@ -71,20 +71,6 @@ action :create do
       end
     elsif platform_family? 'windows'
       include_recipe 'chocolatey'
-    elsif platform_family? 'mac_os_x'
-      include_recipe 'homebrew'
-
-      group 'telegraf' do
-        action :create
-      end
-
-      cookbook_file '/Library/LaunchDaemons/com.influxdata.telegraf.plist' do
-        action :create
-        content 'com.influxdata.telegraf.plist'
-        cookbook 'telegraf'
-      end
-
-      package 'telegraf'
     else
       raise "I do not support your platform: #{node['platform_family']}"
     end

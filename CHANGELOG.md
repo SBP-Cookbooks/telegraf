@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.13.1002
+
+Remove mac_os_x, homebrew refrerences in metadata.rb and resources
+
 ## 0.12.0
 
 PR#76 - Remove deprecated `recommends`

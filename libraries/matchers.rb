@@ -40,4 +40,12 @@ if defined?(ChefSpec)
   def create_telegraf_perf_counters(name)
     ChefSpec::Matchers::ResourceMatcher.new(:telegraf_perf_counters, :create, name)
   end
+  
+  def create_telegraf_processors(name)
+    ChefSpec::Matchers::ResourceMatcher.new(:telegraf_processors, :create, name)
+  end
+
+  def create_telegraf_aggregators(name)
+    ChefSpec::Matchers::ResourceMatcher.new(:telegraf_aggregators, :create, name)
+  end
 end
